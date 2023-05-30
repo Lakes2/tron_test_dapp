@@ -35,7 +35,7 @@
         }
 
         async function sign() {
-            var tx = await window.tronWeb.transactionBuilder.sendTrx('TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP', 10, 'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ')
+            var tx = await window.tronWeb.transactionBuilder.sendTrx('TFmDiAWztv3iEkKjcym2KUzLhHtrKwJwgJ', 10)
             window.tronWeb.trx.sign(tx).then(res => {
                 console.log('sign result', res)
                 alert(`sign result: ${res}`)
