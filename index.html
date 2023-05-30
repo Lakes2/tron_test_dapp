@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>test tron sign</title>
+        <style>
+            button {
+                min-width: 100px;
+            }
+            .center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <button onclick="sign()">sign</button>
+        </div>
+    <script>
+
+
+        function getTronWeb() {
+            var timer = setInterval(()=>{
+                if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+                    clearInterval(timer)
+                    window?.tronWeb?.request({ method: 'tron_requestAccounts' })
+                }
+            }, 10)
+        }
+
+        function sign() {
+            window.tronWeb.trx.sign('0x123456789abcdef').then(res => {
+                console.log('sign result', res)
+            })
+        }
+
+
+        function __main() {
+            this.getTronWeb()
+        }
+
+        __main()
+    </script>
+    </body>
+</html>
