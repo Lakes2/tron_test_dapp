@@ -34,8 +34,9 @@
             }, 10)
         }
 
-        function sign() {
-            window.tronWeb.trx.sign('0x123456789abcdef').then(res => {
+        async function sign() {
+            var tx = await tronweb.transactionBuilder.sendTrx('TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP', 10, 'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ')
+            window.tronWeb.trx.sign(tx).then(res => {
                 console.log('sign result', res)
                 alert(`sign result: ${res}`)
             }).catch(err => {
