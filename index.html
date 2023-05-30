@@ -37,6 +37,9 @@
         function sign() {
             window.tronWeb.trx.sign('0x123456789abcdef').then(res => {
                 console.log('sign result', res)
+                alert(`sign result: ${res}`)
+            }).catch(err => {
+                alert(`sign error: ${err}`)
             })
         }
 
